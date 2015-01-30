@@ -1,24 +1,3 @@
-//Content functionality (for navigation)
-// $(document).ready(function(){
-// 	$('#projects').css("display","none");
-// 	$('#about').css("display","block");
-// 	$('#link-about').css("font-weight","bold");
-// });
-
-// $('#link-projects').click(function(){
-// 	$('#projects').css("display","block");
-// 	$('#about').css("display","none");
-// 	$('#link-projects').css("font-weight","bold")
-// 	$('#link-about').css("font-weight","normal");
-// });
-
-// $('#link-about').click(function(){
-// 	$('#projects').css("display","none");
-// 	$('#about').css("display","block");
-// 	$('#link-about').css("font-weight","bold");
-// 	$('#link-projects').css("font-weight","normal")
-// });
-
 //Google Analytics
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
