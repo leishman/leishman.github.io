@@ -26,13 +26,6 @@
 		padding-right: 55px;
 	}
 
-	#icon-tumblr:hover{
-		/*background-color: #2F4B66;*/
-/*		-moz-border-radius:35px;
- 		-webkit-border-radius:35px;*/
- 		/*border-radius: 20px;*/
-	}
-
 	a.socialIcons:hover{
 		opacity: .65;
 		filter:alpha(opacity=80); /* For IE8 and earlier */
@@ -84,16 +77,19 @@
 	  display:inline;
 	}
 
-	#nav a {
-	    display:inline-block;
-	    padding:0px 20px;
+	.link-nav {
+	    display: inline-block;
+	    padding: 0px 20px;
 	    font-family: 'Futura';
-	    /*font-family: 'Open Sans', serif; /*'Vollkorn';*/
 	    color: black;
 	  	text-decoration: none;
 	}
 
-	#nav a:hover {
+	.link-nav.active {
+		text-decoration: underline;
+	}
+
+	.link-nav:hover {
 		text-decoration: underline;
 	}
 
@@ -123,7 +119,6 @@
 	}
 
 	.link-project {
-		text-decoration: none;
 		color: black;
 	}
 
@@ -133,7 +128,7 @@
 
 /*Hide #projects on page load*/
 	#projects {
-		display: none;
+		/*display: none;*/
 	}
 
 /*Styling footer*/
