@@ -46,7 +46,7 @@ $(document).ready(function(){
 
 	$('#joke').html(myJokes[0]);
 	$('#punchline').html(myPunchlines[0]);
-	$('<img src="sirconnery.gif"/>').appendTo('#content');
+	// $('<img src="sirconnery.gif"/>').appendTo('#content');
 	
 	$('.btn').click(function(){
   	  var num = Math.floor(Math.random()*myJokes.length);
