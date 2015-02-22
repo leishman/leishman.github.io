@@ -46,31 +46,17 @@ $(document).ready(function(){
 
 	$('#joke').html(myJokes[0]);
 	$('#punchline').html(myPunchlines[0]);
-	$('<img src="sirconnery.gif"/>').appendTo('#content');
+	// $('<img src="sirconnery.gif"/>').appendTo('#content');
+	
+	$('.btn').click(function(){
+  	  var num = Math.floor(Math.random()*myJokes.length);
+	  $('#joke').html(myJokes[num]);
+ 	  $('#punchline').html(myPunchlines[num]);
+        });
+	
 
 });
 
-// var usedJokes = new Array();
-
-
-
-$('.btn').click(function(){
-	// var taken = true;
-	// var num = 0;
-	num = Math.floor(Math.random()*myJokes.length);
-	// while(taken == true){
-	// 	num = Math.floor(Math.random()*myJokes.length);
-	// 	if($.inArray(num,used)==-1){
-	// 		taken==false;
-	// 		usedJokes.push(num);
-	// 	}
-	// }
-	$('#joke').html(myJokes[num]);
-	$('#punchline').html(myPunchlines[num]);
-
-
-
-});
 
 
 
