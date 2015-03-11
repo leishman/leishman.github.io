@@ -1,0 +1,18 @@
+---
+layout: post
+title: Quirk with iframes in Rails
+date: '2014-03-01T16:18:00+08:00'
+tags:
+- iframe
+- rails
+- programming
+- bug
+tumblr_url: http://blog.alexleishman.com/post/78245834601/quirk-with-iframes-in-rails
+---
+<p>Crazy bug that was driving me nuts:</p>
+
+<p>I had a placeholder (hidden) iframe for a YouTube video with <code>src="#"</code>.<br/><script src="https://gist.github.com/leishman/38030911c2a1e0ee27a7.js"></script></p>
+
+<p>The <code>"#"</code> was causing my layout to re-render within the iframe even though it was hidden and not displayed. This resulted in all of my assets getting loaded twice!</p>
+
+<p>To fix this, all I needed to do was use <code>src=""</code> as the placeholder instead. I am not sure why this happens yet, but I will update this post once/if I find out.</p>

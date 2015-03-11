@@ -1,0 +1,18 @@
+---
+layout: post
+title: Double-checking up and down migrations in Rails
+date: '2014-05-20T23:26:00+08:00'
+tags:
+- rails
+- ruby on rails
+- active record
+- migrations
+- programming
+- ruby
+tumblr_url: http://blog.alexleishman.com/post/86373731021/double-checking-up-and-down-migrations-in-rails
+---
+<p>A great way to check to see if your up and down migrations work:</p>
+
+<p><code>bundle exec rake db:migrate<br/>
+bundle exec rake db:migrate VERSION=0<br/>
+bundle exec rake db:migrate</code></p>

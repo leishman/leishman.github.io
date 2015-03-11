@@ -1,0 +1,72 @@
+---
+layout: post
+title: HMAC in Ruby
+date: '2014-02-26T22:26:00+08:00'
+tags:
+- ruby
+- hmac
+- openssl
+- api
+- programming
+- api signatures
+- bitcoin
+- kraken
+tumblr_url: http://blog.alexleishman.com/post/77972450823/hmac-in-ruby
+---
+<p>The purpose of this post is to document how I used the built-in <a href="http://en.wikipedia.org/wiki/Hash-based_message_authentication_code">key-Hashed Message Authentication Code (HMAC)</a> scheme in Ruby to sign HTTP requests.</p>
+
+<p>I recently wrote a Ruby Gem that acts as an API wrapper for the <a href="https://www.kraken.com/">Kraken Digital Asset Trading Platform</a>.</p>
+
+<p>The Kraken API allows users to query public market data without an API Key. However, in order to query private user data or make trades through the API, a user must use their API Key and API Secret to sign any requests to the site.</p>
+
+<p>The signature scheme required by Kraken is as follows:</p>
+
+<p>POST Header must have:<br/><script src="https://gist.github.com/leishman/9241506.js"></script></p>
+
+<p>POST Body must contain:<br/><script src="https://gist.github.com/leishman/74952b09c6a2fecbf873.js"></script></p>
+
+<p>Ok, so what does all of this stuff mean?:</p>
+
+<p><b>API-Key:</b> Provided by Kraken to a user</p>
+
+<p><b>API-Sign:</b> This is the hard part and the main topic of this post, but basically, this proves that the POST request is being sent by the owner of the account and that the request has not been tampered with by a <a href="http://en.wikipedia.org/wiki/Man-in-the-middle_attack">MITM</a>.</p>
+
+<p><b>Nonce:</b> This is short for &#8220;<a href="http://en.wikipedia.org/wiki/Cryptographic_nonce">number used once</a>" and is used to protect against <a href="http://en.wikipedia.org/wiki/Replay_attack">replay attacks</a>.</p>
+
+<p><b>otp:</b> One time password, required if two factor authentication is enabled on account (we will assume 2-factor auth is not enabled).</p>
+
+<p>Now, let&#8217;s look at how we can generate a nonce and the proper signature using Ruby.</p>
+
+<p>First the nonce:<br/><script src="https://gist.github.com/leishman/6a6ebb8a71edb5c234c4.js"></script></p>
+
+<p>This method generates a timestamp and pads it with zeros so that it is always a 64 bit &#8220;stringified&#8221; number. A timestamp does not have to be used, but the nonce must increase after each request and the <a href="http://en.wikipedia.org/wiki/Time">properties of time</a> give us an easy way to ensure this incrementation occurs.</p>
+
+<p>Next, the signature code. Skim it and then read the step by step description below. This code snippet is taken from the <a href="https://github.com/leishman/kraken_ruby">full gem</a>.</p>
+
+<p><script src="https://gist.github.com/leishman/9243373.js"></script></p>
+
+<p>This is a lot, so let&#8217;s break it down.</p>
+
+<p>The code above takes an API <code>method</code>, such as <code>'Balance'</code> or <code>'QueryTrades'</code> and any related options (which aren&#8217;t always required for this API).</p>
+
+<p><b>Line 7</b> adds the <code>nonce</code> to the <code>options</code> hash.</p>
+
+<p><b>Line 8</b> encodes the <code>options</code> (<code>nonce</code> included) to put into the body of the HTTP request. The output looks something like <code>"nonce=1094093234000000"</code>. If there were additional options, they would be included in this string and separated by a <code>&amp;</code>. The <a href="https://github.com/sporkmonger/addressable"><code>addressable</code></a> Ruby Gem is being used to do the encoding.</p>
+
+<p>The <code>headers</code> hash on <b>line 10</b> has two values: <code>API-Key</code> is defined by the user. <code>API-Sign</code>, on the other hand, needs to be calculated.</p>
+
+<p>The <code>generate_signature</code> method takes as input the API <code>method</code>, such as <code>'Balance'</code>, the previously encoded <code>post_data</code>, and the <code>opts</code> hash with our <code>nonce</code> value.</p>
+
+<p>The API Secret given by Kraken is Base64 encoded, so we call the<code>Base64.decode64</code> method to decode the key before we generate our signature.</p>
+
+<p>The <code>generate_message</code> method generates the message that we will sign in the HMAC. This message, as detailed by Kraken, must contain <code>URI path + SHA256(nonce + POST data)</code>. <b>Line 37</b> generates the SHA256 hash (with binary output - as opposed to hexdigest). <b>Line 38</b> appends this to our path.</p>
+
+<p>Now that we have the <code>message</code>, we can finally generate the HMAC. The <code>generate_hmac</code> method uses the <code>OpenSSL::HMAC.digest</code> method built into Ruby. It takes as input the cryptographic hash function you wish to use for the signature (SHA512 in our case), the decoded API-Secret <code>key</code> and the <code>message</code> you wish to sign.</p>
+
+<p><b>IMPORTANT:</b> We then <code>split</code> and <code>join</code> the signature to remove a &#8220;/n&#8221; (newline) character that <code>Base64.encode64</code> inserts into the signature. </p>
+
+<p>It took me quite a while to figure out that this happened. <a href="http://stackoverflow.com/a/2621023/2302781">Apparently</a>, the <code>Base64.encode64</code> method inserts a newline after every 60 characters. I just read that there is a <code>Base64.strict_encode64</code> method that doesn&#8217;t do this. I will update this post once I dig more into that.</p>
+
+<p>The rest of the <code>post_private</code> method isn&#8217;t as interesting. It composes the HTTP POST request using the <code>HTTParty</code> gem and returns the parsed response.</p>
+
+<p>Full stop. That is enough for one blog post!</p>

@@ -1,0 +1,44 @@
+---
+layout: post
+title: Background jobs with Sidkiq and Redis
+date: '2014-02-16T03:22:00+08:00'
+tags:
+- ruby
+- sidekiq
+- redis
+- sinatra
+- twitter
+- dev bootcamp
+tumblr_url: http://blog.alexleishman.com/post/76823428694/background-jobs-with-sidkiq-and-redis
+---
+<p>I have been negligent about blogging, mostly because I have been coding and studying 100 hrs/week. But, I know that I need to take the time to write about what I&#8217;m learning. </p>
+
+<p><img src="http://media.giphy.com/media/Zfel0A5zMsffy/giphy.gif"/></p>
+
+<p>So, I recently learned to implement background jobs in Sinatra using the <a href="https://github.com/mperham/sidekiq">Sidekiq gem</a>.</p>
+
+<p>Sidekiq allows you to create &#8220;workers&#8221;, to which you can allocate tasks instead of forcing the current server process to wait until a task completes. </p>
+
+<p>Sidekiq runs as a server process parallel to your Ruby application. You send the sidekiq process &#8220;work&#8221; to do, which gets added to a Redis queue and allows your main program to continue uninterrupted until the workers have finished completing their assigned task.</p>
+
+<p>Here&#8217;s an example: I created a web application that allows a user to log in and send tweets through their account using OAuth and the Twitter API.</p>
+
+<p>Before background jobs were implemented, a user would have to wait until the app received confirmation from Twitter (via the API) that the tweet was sent before he/she could send a new Tweet. </p>
+
+<p>Now, in theory, this UX lag problem could have been resolved on the front end using AJAX but that wouldn&#8217;t fix the problem of the server process having to pause while each request was sent to Twitter.</p>
+
+<p><i>Sidekiq to the rescue<br/></i></p>
+
+<p>In my user model, I added a tweet method:</p>
+
+<p><script src="https://gist.github.com/leishman/23a21dac2e305ad6e243.js"></script></p>
+
+<p>This inserts a new tweet in the database and then passes the id of this tweet to a <code>TweetWorker</code> (the Sidekiq/Redis process/queue).</p>
+
+<p><script src="https://gist.github.com/leishman/14b5e06fb2c7ea4be006.js"></script></p>
+
+<p>The <code>TweetWorker</code> has a <code>perform</code> method which houses the workers task. In this case, the worker looks up the tweet text from the database and proceeds to update the user&#8217;s twitter status via the Twitter <code>@client</code>.</p>
+
+<p>Notice that the <code>tweet.id</code>, not the tweet object, is passed to the Sidekiq process. This is because whatever gets passed to the worker is added to the Redis queue, which should only hold standard data types, not serialized objects.</p>
+
+<p>I learned a lot from this exercise and am continuing to dive deeper into Redis and background jobs. I know a solid understanding of these topics is necessary for building scalable applications.</p>
