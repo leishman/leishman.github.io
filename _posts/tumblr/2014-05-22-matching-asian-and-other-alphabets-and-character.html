@@ -1,0 +1,17 @@
+---
+layout: post
+title: Matching Asian and other Alphabets and Character Sets in Ruby
+date: '2014-05-22T15:39:00+08:00'
+tags:
+- ruby
+- programming
+- regexp
+tumblr_url: http://blog.alexleishman.com/post/86525354786/matching-asian-and-other-alphabets-and-character
+---
+<p>Ruby comes with built in Rexexp matching for various alphabets and character sets.</p>
+
+<p>Here is an example:<br/><code>/\p{Thai}|\p{Cypriot}|\p{Hangul}/<code></code></code></p>
+
+<p>The above expression will match all Thai, Cypriot and Hangul (Korean) characters. </p>
+
+<p>This functionality comes in handy when building an international site and deciding how to display a user&#8217;s given name and surname in the correct order.</p>

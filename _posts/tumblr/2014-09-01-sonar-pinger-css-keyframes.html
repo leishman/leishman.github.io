@@ -1,0 +1,30 @@
+---
+layout: post
+title: Sonar Pinger CSS Keyframes
+date: '2014-09-01T08:53:00+08:00'
+tags:
+- css3
+- css
+- css animations
+- sonar
+- pinger
+- slim
+tumblr_url: http://blog.alexleishman.com/post/96353292626/sonar-pinger-css-keyframes
+---
+<p>I was playing around with creating a sonar pinger animation with pure CSS. It actually turned out to be much easier than I expected!</p>
+
+<p>You can see it here: <a href="http://codepen.io/anon/pen/ytnHh">http://codepen.io/anon/pen/ytnHh</a></p>
+
+<p>TL;DR  Create a div (with 50% solid border-radius) for every circle you want to appear simultaneously in the animation. Then create keyframe animation than increases the width and height and translates it so the center stays stationary as the block grows.</p>
+
+<p>Here is my CSS:</p>
+
+<p><script src="https://gist.github.com/leishman/4378f22da6c72720de51.js"></script></p>
+
+<p>Here is the HTML:</p>
+
+<p><script src="https://gist.github.com/leishman/116e1b24a22b13808ccd.js"></script></p>
+
+<p>I actually wrote this using SASS and SLIM. For the curious, here is the SLIM:</p>
+
+<p><script src="https://gist.github.com/leishman/8c91d24d7824e1e04846.js"></script></p>

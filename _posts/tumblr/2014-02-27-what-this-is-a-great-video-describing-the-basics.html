@@ -1,0 +1,28 @@
+---
+layout: post
+title: BIP 38
+date: '2014-02-27T01:07:00+08:00'
+tags:
+- bitcoin
+- bip38
+- cryptocurrencies
+- programming
+tumblr_url: http://blog.alexleishman.com/post/77986354177/what-this-is-a-great-video-describing-the-basics
+---
+<iframe width="400" height="225" id="youtube_iframe" src="https://www.youtube.com/embed/ksK9_PAWfz0?feature=oembed&amp;enablejsapi=1&amp;origin=http://safe.txmblr.com&amp;wmode=opaque" frameborder="0" allowfullscreen></iframe><br/><p><b>What</b></p>
+
+<p>This is a great video describing the basics of the Bitcoin Improvement Protocol (BIP) 38, which details a standard for encrypting private keys.</p>
+
+<p><b>Why?</b> </p>
+
+<p>One benefit BIP 38 gives is the ability to store private keys encrypted with a known standard and protected by a password that you can memorize. This means that if somebody were to gain access to a wallet in cold storage, they still wouldn&#8217;t have access to your Bitcoin.</p>
+
+<p><b>How?</b></p>
+
+<p>The initial encryption is done using AES due to its ubiquity and proven effectiveness. However, AES is very fast and allows an attacker to quickly make many attempts at guessing your password. Therefore, Scrypt is added in the protocol because current hardware is not optimized for rapidly executing the memory-intensive <a href="http://en.wikipedia.org/wiki/Scrypt">Scrypt key derivation</a> function (it typically takes a couple-hundred milliseconds to execute). </p>
+
+<p>The result of this is that an attacker can&#8217;t quickly make attempts at guessing your password and is MUCH less likely to actually access your unencrypted private key.</p>
+
+<p><b>More?</b></p>
+
+<p>The actual specification can be found <a href="https://github.com/bitcoin/bips/blob/master/bip-0038.mediawiki">here</a>. There are some other features that I didn&#8217;t mention, so go check those out!</p>
