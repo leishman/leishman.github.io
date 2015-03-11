@@ -1,98 +1,116 @@
+
+
+// Color Variables
+$black-color: #000; 
+
+
 /**
  * Site header
  */
-.site-header {
-    border-top: 5px solid $grey-color-dark;
-    border-bottom: 1px solid $grey-color-light;
-    min-height: 56px;
-
-    // Positioning context for the mobile navigation icon
-    position: relative;
+.header-main {
+    height: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 7px;
 }
 
-.site-title {
-    font-size: 26px;
-    line-height: 56px;
-    letter-spacing: -1px;
-    margin-bottom: 0;
-    float: left;
-
-    &,
-    &:visited {
-        color: $grey-color-dark;
-    }
-}
-
-.site-nav {
-    float: right;
-    line-height: 56px;
-
-    .menu-icon {
-        display: none;
+/*Styling of header*/
+    #name {
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        float: left;
+        text-align: left;
+        font-family: 'Futura';
+        font-size: 20px;
     }
 
-    .page-link {
-        color: $text-color;
-        line-height: $base-line-height;
-
-        // Gaps between nav items, but not on the first one
-        &:not(:first-child) {
-            margin-left: 20px;
-        }
-    }
-
-    @include media-query($on-palm) {
-        position: absolute;
-        top: 9px;
-        right: 30px;
-        background-color: $background-color;
-        border: 1px solid $grey-color-light;
-        border-radius: 5px;
+/* Social Icons*/
+    #icons{
         text-align: right;
+        float: right;
+        width: 200px;
+        padding-right: 55px;
+    }
 
-        .menu-icon {
-            display: block;
-            float: right;
-            width: 36px;
-            height: 26px;
-            line-height: 0;
-            padding-top: 10px;
-            text-align: center;
+    a.socialIcons:hover{
+        opacity: .65;
+        filter:alpha(opacity=80); /* For IE8 and earlier */
+    }
 
-            > svg {
-                width: 18px;
-                height: 15px;
+/*Logo Styling (big A)*/
+    .circle {
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        border: 1px solid $gray-color-dark;
+        font-size: 75px;
+        font-family: 'Old Standard TT', serif;
+        color: $white-color;
+        line-height: 100px;
+        text-align: center;
+        background:#000;
+        margin: auto;
 
-                path {
-                    fill: $grey-color-dark;
-                }
-            }
-        }
-
-        .trigger {
-            clear: both;
+        @include media-query($on-palm) {
             display: none;
         }
+    }
 
-        &:hover .trigger {
-            display: block;
-            padding-bottom: 5px;
-        }
+    .circle:hover {
+        color:#000;
+        background: $white-color;
+        border: 1px solid $gray-color-dark;
+    }
 
-        .page-link {
-            display: block;
-            padding: 5px 10px;
+
+/*Styling of Navigation Bar*/
+.site-nav {
+    border: 1px solid $gray-color-light;
+    border-width: 1px 0;
+    list-style: none;
+    margin-top: 20px;
+    padding: 10px 0px;
+    text-align: center;
+
+    ul {
+        -webkit-margin-before:0em;
+        -webkit-margin-after:0em;
+        -webkit-padding-start: 0px;
+    }
+
+    li {
+      display: inline;
+    }
+
+    .link-nav {
+        display: inline-block;
+        padding: 0px 20px;
+        font-family: 'Futura';
+        color: $black-color;
+        text-decoration: none;
+
+        @include media-query($on-palm) {
+            padding: 0px 4px;
         }
     }
-}
 
+    .link-nav.active {
+        text-decoration: underline;
+    }
+
+    .link-nav:hover {
+        text-decoration: underline;
+    }
+}
 
 
 /**
  * Site footer
  */
 .site-footer {
-    border-top: 1px solid $grey-color-light;
+    border-top: 1px solid $gray-color-light;
     padding: $spacing-unit 0;
 }
 
@@ -109,7 +127,7 @@
 
 .footer-col-wrapper {
     font-size: 15px;
-    color: $grey-color;
+    color: $gray-color-dark;
     margin-left: -$spacing-unit / 2;
     @extend %clearfix;
 }
@@ -180,7 +198,7 @@
 
 .post-meta {
     font-size: $small-font-size;
-    color: $grey-color;
+    color: $gray-color-dark;
 }
 
 .post-link {
