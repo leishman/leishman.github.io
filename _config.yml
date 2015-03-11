@@ -1,0 +1,11 @@
+# Site settings
+title: Alex Leishman Personal Website
+email: leishman3@gmail.com
+description: "Home page for Alex Leishman - Software Engineer, Bitcoin Junkie, Traveler."
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://alexleishman.com" # the base hostname & protocol for your site
+twitter_username: leishman
+github_username:  leishman
+
+# Build settings
+markdown: kramdown
