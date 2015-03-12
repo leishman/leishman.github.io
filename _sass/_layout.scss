@@ -140,14 +140,6 @@
 }
 
 
-// Project Page sStyling
-
-// .link-project .title-project {
-//     &:hover {
-//         color: $gray-color;
-//     }
-// }
-
 
 /**
  * Site footer
@@ -173,6 +165,11 @@
 .page-heading {
     font-size: 20px;
 }
+
+
+/**
+ * Posts
+ */
 
 .post-list {
     margin-left: 0;
@@ -206,9 +203,6 @@
     padding: 3px 4px;
 }
 
-/**
- * Posts
- */
 .post-header {
     margin-bottom: $spacing-unit;
 }
@@ -223,30 +217,11 @@
     }
 }
 
-.post-content {
-    margin-bottom: $spacing-unit;
 
-    h2 {
-        font-size: 32px;
+/**
+ * General
+ */
 
-        @include media-query($on-laptop) {
-            font-size: 28px;
-        }
-    }
-
-    h3 {
-        font-size: 26px;
-
-        @include media-query($on-laptop) {
-            font-size: 22px;
-        }
-    }
-
-    h4 {
-        font-size: 20px;
-
-        @include media-query($on-laptop) {
-            font-size: 18px;
-        }
-    }
+.pop {
+    color: $red-color !important;
 }
