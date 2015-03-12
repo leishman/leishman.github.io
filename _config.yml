@@ -10,3 +10,6 @@ permalink: /posts/:title
 
 # Build settings
 markdown: kramdown
+
+gems:
+  - jekyll-sitemap
