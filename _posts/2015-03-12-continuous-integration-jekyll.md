@@ -3,8 +3,8 @@ layout: post
 title: Continuous Integration
 date: '2015-03-12T14:15:29+08:00'
 tags:
-- jekyll
 - CI
+- jenkins
 - testing
 ---
 
