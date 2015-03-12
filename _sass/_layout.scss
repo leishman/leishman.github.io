@@ -51,7 +51,7 @@
         border: 1px solid $gray-color-dark;
         font-size: 75px;
         font-family: 'Old Standard TT', serif;
-        color: $white-color;
+        color: $white-color !important;
         line-height: 100px;
         text-align: center;
         background:#000;
@@ -129,7 +129,8 @@
         }
     }
 
-    h3 {
+    h1, h2, h3 {
+        color: $black-color;
         font-family: 'Futura';
     }
 
@@ -138,13 +139,11 @@
 
 // Project Page sStyling
 
-.link-project .title-project {
-    color: $black-color;
-
-    &:hover {
-        color: $gray-color;
-    }
-}
+// .link-project .title-project {
+//     &:hover {
+//         color: $gray-color;
+//     }
+// }
 
 
 /**
@@ -187,10 +186,22 @@
 }
 
 .post-link {
+    color: $black-color;
     display: block;
     font-size: 24px;
+    text-decoration: underline;
 }
 
+.post-tags {
+
+}
+
+.post-tag {
+    color: $white-color;
+    background-color: $gray-color;
+    border-radius: 4px;
+    padding: 3px 4px;
+}
 
 /**
  * Posts
