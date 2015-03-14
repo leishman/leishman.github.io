@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Exploring Secrets of the Bitcoin Blockchain
-date: '2015-03-12T14:15:29+08:00'
+date: '2015-03-05T14:15:29+08:00'
 tags:
 - bitcoin
 - blockchain
