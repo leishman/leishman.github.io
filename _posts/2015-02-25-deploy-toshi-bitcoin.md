@@ -123,7 +123,7 @@ Executing: gpg --ignore-time-conflict --no-options --no-default-keyring --homedi
 .....
 {% endhighlight %}
 
-Then we will clone the Toshi repo from Github and move into the new directory:
+Then we will clone the [Toshi repo from Github](https://github.com/coinbase/toshi) and move into the new directory:
 {% highlight bash %}
 toshi@ip-172-31-62-77:~$ git clone https://github.com/coinbase/toshi.git
 toshi@ip-172-31-62-77:~$ cd toshi/
