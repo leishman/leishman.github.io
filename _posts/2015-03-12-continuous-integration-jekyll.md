@@ -50,3 +50,25 @@ Additionally, it forces better communication, as the whole team can now plainly 
 I have only begun to skim the surface in the world of CI. But I can already see how valuable a concept it is for making smoother workflows and enabling a shorter feedback loop, which leads to higher code quality.
 
 In the near future I hope setup CI for the multiple applications at my employer. The next challenge to tackle will be properly integrating Jenkins into a workflow with multiple applications and a complex deployment process. I'm looking forward to it!
+
+**Update!**
+
+Jenkins is up and running at work. Currently we only have it running for our main project. I came across some important things to be aware of when setting it up for a security-senstive codebase:
+
+- Put Jenkins behind an HTTP server like Apache or Nginx. Be sure to set up SSL and keep the IP of the machine a secret within the company. Also be sure to follow best practices when it comes to security. Force SSL redirects, disallow weak ciphers, etc...
+
+- The user permissions management interface is not friendly and it is easy to lock yourself out. You might have to go into the server and update the configuration XML file a few times before you get used to things.
+
+- Setting up Github integration requires creating an SSH keypair for the Jenkins machine. From there you have a few options:
+
+  - Add the public key to a team-member's Github account, which gives the Jenkins machine any permissions that user has. 
+
+  - Create a new Github user solely for Jenkins and add the key to that account. Give it only the permissions it needs.
+
+  - Add the SSH key as a deploy key on the Github project. This is limiting because you will need to create a new keypair for each project Jenkins needs to pull.
+
+
+- Ensure that the Jenkins global settings are such that a user must sign in before they can access any part of the tool. As an administrator, you can turn on and turn off sign ups. I'd recommend turning on signups only while a team member needs to sign up. Then turn it off again and be sure that nobody has created an unexpected account.
+
+
+
