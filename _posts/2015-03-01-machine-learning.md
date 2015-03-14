@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Machine Learning 101
+title: Machine Learning Basics - Part 1
 date: '2015-03-01T14:15:29+08:00'
 tags:
 - machine learning
