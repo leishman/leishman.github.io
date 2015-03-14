@@ -14,6 +14,8 @@ As you many notice, it takes a very long time (~two weeks) for the blockchain to
 
 In this post we will walk through a few simple ways to analyze our new blockchain data to gain insights into and uncover some mysteries of the Blockchain.
 
+The analysis here is very rudimentary and is only meant to give you a way to easily get your feet wet.
+
 First we need a way to access our database in the toshi_db Docker container. I’ve found that the easiest way to do that is to setup a new container running `psql`, the PostgreSQL interactive terminal.
 
 Run the command below, which will take you to the psql command line inside a new container.
@@ -157,7 +159,7 @@ If we convert each of the script hex values to UTF-8 (online tool), we get some 
 (Test0004嬟zN畆oﱵ联؞¬⋈ǦQ<㺏֪怀
 {% endhighlight %}
 
-The first result includes the French expression `Ça marche`, meaning “ok, that works”. The second result includes a URL that (leads to the JSON description)[https://cpr.sm/aNSAyIRJSr] of a colored coin asset. To learn more about colored coins, check out Coinprism. The third result includes the text `DOCPROOF`, which indicates that the output was used for proof of existence, allowing a user to cryptographically prove existence of a document at a point in time. The last result looks like somebody just wanted to play around and test out `OP_RETURN`.
+The first result includes the French expression `Ça marche`, meaning “ok, that works”. The second result includes a URL that [leads to the JSON description](https://cpr.sm/aNSAyIRJSr) of a colored coin asset. To learn more about colored coins, check out Coinprism. The third result includes the text `DOCPROOF`, which indicates that the output was used for proof of existence, allowing a user to cryptographically prove existence of a document at a point in time. The last result looks like somebody just wanted to play around and test out `OP_RETURN`.
 
 Lastly, if we want to export the results of a query from our container we can copy it to SDOUT and then export it from the container log afterwards.
 
@@ -192,4 +194,7 @@ sudo docker logs sad_shockly > data.csv
 
 You can now `scp` this CSV file back to your local machine for further analysis. Note that this file will include all commands and outputs from your psql container. It may require some manual touch-ups. You can always start a new psql container for a fresh log.
 
-So, in just a few minutes we were able to create a new psql Docker container, allowing us to explore blockchain data in ways that are impossible or very difficult to do with bitcoind. We discovered messages that people have left in the blockchain and learned how to export any queries we make into a CSV file. We have only scratched the surface, there are many insights yet to be discovered. Happy querying!
+So, in just a few minutes we were able to create a new psql Docker container, allowing us to explore blockchain data in ways that are impossible or very difficult to do with bitcoind. We discovered messages that people have left in the blockchain and learned how to export any queries we make into a CSV file. We have only scratched the surface, there are many insights yet to be discovered.
+
+There is a lot of complex analysis that can be done with this rich source of data. For example, if you look at the blockchain as a graph, you can find that you can cluster addresses into "Entities" by looking at any unspent outputs that have been used as inputs into a single transaction and assuming that the addresses owning each of those outputs belong to the same entity. Using only this rudimentary rule to cluster bitcoin addresses, you can begin to make out some interesting behavior and features in the blockchain. Perhaps that is a post best left for another day.
+
