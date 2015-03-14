@@ -14,7 +14,7 @@ Toshi is an implementation of the Bitcoin protocol, written in Ruby and built by
 - How to deploy Toshi to an Amazon AWS instance with Redis and PostgreSQL using Docker.
 - How to query the data to gain insights into the Blockchain
 
-![Toshi GUI]({{ site.url }}/assets/images/posts/2015-02-25-toshi-gui.png2015-02-25-toshi-gui.png)
+![Toshi GUI]({{ site.url }}/assets/images/posts/2015-02-25-toshi-gui.png)
 
 If you don't like reading, I have created a tutorial video on deploying Toshi here:
 
