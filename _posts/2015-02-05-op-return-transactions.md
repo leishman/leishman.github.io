@@ -9,7 +9,7 @@ tags:
 
 This post is a basic introduction to the `OP_RETURN` *Op Code* , which can be used to store data in the Bitcoin Blockchain. Doing this requires an intermediate understanding of the Bitcoin protocol and some familiarity with the Ruby programming language
 
-Bitcoin is primarily known as a digital currency; however, it is much more than just a type of  ‘digital money’. Bitcoin transactions can also be used to store small amounts of extra data in the blockchain - allowing developers to build distributed applications and protocols on top of Bitcoin, such as (Counterparty)[ http://counterparty.io/] and (Mastercoin)[ http://www.mastercoin.org/]. These Bitcoin 2.0 protocols have the potential to enable decentralized asset exchange, securities issuance, betting and contract settlements - all on the Blockchain.
+Bitcoin is primarily known as a digital currency; however, it is much more than just a type of  ‘digital money’. Bitcoin transactions can also be used to store small amounts of extra data in the blockchain - allowing developers to build distributed applications and protocols on top of Bitcoin, such as [Counterparty](http://counterparty.io/) and [Mastercoin](http://www.mastercoin.org/). These Bitcoin 2.0 protocols have the potential to enable decentralized asset exchange, securities issuance, betting and contract settlements - all on the Blockchain.
 
 Storing extra data in the Bitcoin Blockchain is controversial. Some people see it as 'dirtying' the blockchain, but it is part of the protocol nonetheless and allows developers to build interesting technologies.
 
@@ -173,4 +173,4 @@ It should look something like this:
 
 ![bitcoin transaction image]({{site.url}}/assets/images/posts/2015-02-05-bitcoin-tx.png)
 
-From here you can do anything you want, including creating your own protocol on top of the Blockchain utilizing this embedded data. The moon is the limit!
+From here you can do anything you want, including creating your own protocol on top of the Blockchain utilizing this embedded data. One of the downsides to this, however is that such a protocol cannot support SPV (I think). This is something I will spend some more time thinking about.
