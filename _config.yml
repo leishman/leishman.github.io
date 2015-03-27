@@ -1,7 +1,7 @@
 # Site settings
 title: Alex Leishman Personal Website
 email: leishman3@gmail.com
-description: "Home page for Alex Leishman - Software Engineer, Bitcoin Junkie, Traveler."
+description: "Home page for Alex Leishman - Software Engineer, Bitcoin Junkie, Traveler. Alexander lives in the San Francisco Bay Area and will matriculate as a graduate student in the Computer Science Department at Stanford University in Fall 2015."
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://alexleishman.com" # the base hostname & protocol for your site
 twitter_username: leishman
