@@ -8,6 +8,8 @@ twitter_username: leishman
 github_username:  leishman
 permalink: /posts/:title
 
+comments: true
+
 # Build settings
 markdown: kramdown
 
