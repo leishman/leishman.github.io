@@ -13,7 +13,7 @@ Bitcoin is primarily known as a digital currency; however, it is much more than 
 
 Storing extra data in the Bitcoin Blockchain is controversial. Some people see it as 'dirtying' the blockchain, but it is part of the protocol nonetheless and allows developers to build interesting technologies.
 
-We will walk through how to create a bitcoin transaction that includes an extra "secret message". This message will then be stored in the blockchain when we propagate the transaction. To follow along you must have some familiarity with Bitcoin and the Ruby programming language. You must also own some bitcoin. We will use the (Electrum)[ https://electrum.org/] Bitcoin wallet and the (bitcoin-ruby library)[ https://github.com/lian/bitcoin-ruby] to generate this transaction.
+We will walk through how to create a bitcoin transaction that includes an extra "secret message". This message will then be stored in the blockchain when we propagate the transaction. To follow along you must have some familiarity with Bitcoin and the Ruby programming language. You must also own some bitcoin. We will use the [Electrum](https://electrum.org/) Bitcoin wallet and the [bitcoin-ruby library](https://github.com/lian/bitcoin-ruby) to generate this transaction.
 
 <p class="pop">WARNING: Do not do this if you hold significant funds in your Electrum wallet. This is for fun/development only. If you make a mistake you can lose your wallet funds.</p>
 
@@ -48,7 +48,7 @@ This is the output we will use as the input to our new transaction. In order for
 
 The resulting array shows the private key. Anybody with this string can spend the bitcoin at the corresponding address. Keep it safe!
 
-We also need the JSON representation of the transaction with hash prevout_hash. To find this you can go to http://webbtc.com/tx/YOUR_PREVOUT_HASH.json. Paste this JSON data in a file named tx.json. (Here is an example)[http://webbtc.com/tx/1128f3081091f42e939c9d486996bc52a948707107e61f72029175e72c556d92.json].
+We also need the JSON representation of the transaction with hash prevout_hash. To find this you can go to `http://webbtc.com/tx/YOUR_PREVOUT_HASH.json`. Paste this JSON data in a file named tx.json. [Here is an example](http://webbtc.com/tx/1128f3081091f42e939c9d486996bc52a948707107e61f72029175e72c556d92.json).
 
 Now we have all of the information we need to generate the transaction. We will use the bitcoin-ruby gem to do this.
 
@@ -165,9 +165,9 @@ JSON:
 }
 {% endhighlight %}
 
-We've done it! You can see our secret message encoded after `OP_RETURN` in the second output. `OP_RETURN` is an “Op Code” in the Bitcoin scripting language that tells the script interpreter to ignore everything after it. You are allowed to store up to [80 bytes](https://github.com/bitcoin/bitcoin/pull/5286) of extra data in an `OP_RETURN` output. You can read more about this and other features of the Bitcoin scripting language (here)[https://bitcoin.org/en/developer-guide#term-null-data].
+We've done it! You can see our secret message encoded after `OP_RETURN` in the second output. `OP_RETURN` is an “Op Code” in the Bitcoin scripting language that tells the script interpreter to ignore everything after it. You are allowed to store up to [80 bytes](https://github.com/bitcoin/bitcoin/pull/5286) of extra data in an `OP_RETURN` output. You can read more about this and other features of the Bitcoin scripting language [here](https://bitcoin.org/en/developer-guide#term-null-data).
 
-Lastly, we need to propagate this transaction into the bitcoin network. There are many ways to do that. The easiest way is to use http://webbtc.com/relay_tx. To verify that the transaction propagated, you can go to https://insight.bitpay.com /tx/YOUR_TX_HASH. It may take some time for it to appear.
+Lastly, we need to propagate this transaction into the bitcoin network. There are many ways to do that. The easiest way is to use [http://webbtc.com/relay_tx](http://webbtc.com/relay_tx). To verify that the transaction propagated, you can go to [https://insight.bitpay.com](https://insight.bitpay.com) /tx/YOUR_TX_HASH. It may take some time for it to appear.
 
 It should look something like this:
 
