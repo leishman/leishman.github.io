@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/leishman
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://alexleishman.com
+  * I am leishman (https://keybase.io/leishman) on keybase.
+  * I have a public key with fingerprint D7B0 60F4 DE39 077C F7BB  6D90 9B83 C27E C257 736E
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0101cca35b37c734ee66edf0dfdf45ff11c3dd6d2146a2e024045cd38b012824bc1a0a",
+            "fingerprint": "d7b060f4de39077cf7bb6d909b83c27ec257736e",
+            "host": "keybase.io",
+            "key_id": "9b83c27ec257736e",
+            "kid": "0101cca35b37c734ee66edf0dfdf45ff11c3dd6d2146a2e024045cd38b012824bc1a0a",
+            "uid": "4e654be8fd2db6be430fafc1f74ebd19",
+            "username": "leishman"
+        },
+        "service": {
+            "hostname": "alexleishman.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1470010721,
+    "expire_in": 157680000,
+    "prev": "ecdcc56a637f537fba35cbeac85bc1757f7b3f8b9f11bcdb41c71ed5ba6fbe48",
+    "seqno": 6,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.53
+Comment: https://keybase.io/crypto
+
+yMImAnicrVJdSFRBGF1Ta3fLEiukFItbDwpm9392V4ooKSQxiCKLaLnzt97cvXfb
+e9XKTERfgh6KFC3QNE2yQgmLfqDSsLLUIKJ6SUuC7JcITKlAmiv61mMDwzDfnHPm
+O2emPyne5Y1L6t4+OZR5NC1usO9cqWtPc71WwUETH+ECFVwJmVlIGBPLDpbomAtw
+vMALCGmSAiWAgCQToqoEUx5TTGWFUkFAEsYqFgVZ1UTCizIvKwhLPsgLok+UIRI0
+XuOyOaobIRKLxnTDZrIYQF7lqYyJ5OcBQBRAqGI/74c+CYmAIFEBQFIJIxablsNg
+zUHNIjm6yWpsE5xp7x/4/9x36YycTFRFhsRHsYihCoks8VSjSKBAJhALfgdokZih
+RQhDh4luFUc0g6vM5li1TEfECdZxMovQwuTwHCoHmRHGj8ZM20RmmJ0W23Y04JDt
+I1EHXU5gcFYnCHUDsygZoYzELN00uIDAkMjWHWFBBjyzDkQhmyOHo3qMBHUHoQDV
+x7PhXEPKmCRBGCFF1VQJUIVNyKJCkGjIpzDrQAHsRSTqg36WFEQYygICAsEK1FTK
+7Ps4x9khw+QCKmtTCzFJSw8Zml0aI1zlg979Ca44r2t+4jzni7m8nuS5j9dwwe26
+Xl6jR0qeW7nVnd/y88cT0hrrapuyhtcObeKnz91PflT6sfZlj7cgb0W7++r4j3Xd
+mVWjBSuXVt3Lki9fzvz6bK2nc9H63kpPmxbJun2W+zTv8YZT1Rd7Blvl9AF7KmVM
+HDpRUtRf07jwaEal8aHBfVP5MpzY9dT9sGjrzoNT1y4taHvi/7O77nNqcoZriSf+
+TNeO8yN3Fzenp5/cMnFM3fWivqPz9dvl05ubtrW/m0gonGy16nMXFjb37PjprkHT
+3Skb7VunF0fdY2UTa0Zd6a8KaN2q0fdDLd/7rtxoS5KX7WoZ+bUhIK7Z692XcydE
+7xeu/t1+3M4bQKO73zQfKEztuPcXxzVBoA==
+=/Y15
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/leishman
+
+==================================================================
