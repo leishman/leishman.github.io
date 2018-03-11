@@ -16,7 +16,7 @@ Bare with me, as my thoughts on this subject are evolving. I am not claiming to 
 
 ## Our Model
 
-When attempting to generalize any system, one must first detail his assumptions. For the sake of sufficient abstraction, I will use some new words as generalized proxys for traditional bitcoin-specific terminology:
+When attempting to generalize any system, one must first detail his assumptions. For the sake of sufficient abstraction, I will use some new words as generalized proxies for traditional bitcoin-specific terminology:
 
 
 | Bitcoin Term      | Generalized Term    |
