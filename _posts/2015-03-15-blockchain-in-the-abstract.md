@@ -88,7 +88,7 @@ But let's open our minds a bit and think of other possibilities that our general
 
 <b>Multicurrency Chain</b>
 
-What if an output could contain multiple values, each representing an amount of a different digital asset? For example, suppose there were not  only a value in each output representing its amount of spendable Satoshis, but also a value representing its amount of spendable Szabos. However, the rate of Szabo creation is only 10 per week on average - much lower than the rate of Satoshi creation. How would this token be treated? Would owning some Szabos become a status symbol? How would market dynamics be altered?
+What if an output could contain multiple values, each representing an amount of a different digital asset? For example, suppose there were not only a value in each output representing its amount of spendable Satoshis, but also a value representing its amount of spendable Szabos. However, the rate of Szabo creation is only 10 per week on average - much lower than the rate of Satoshi creation. How would this token be treated? Would owning some Szabos become a status symbol? How would market dynamics be altered?
 
 <b>Multi-Chain Ecosystem</b>
 
